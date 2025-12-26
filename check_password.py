@@ -15,6 +15,7 @@ def has_upper_letters(password):
         return 2
     return 0
 
+
 def has_lower_letters(password):
     if any(variable.islower() for variable in password):
         return 2
@@ -48,3 +49,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
