@@ -1,47 +1,43 @@
-def has_digit(password):
-    if len(password) >= 12:
-        return 2
-    return 0
+def check_the_length(password):
+    return len(password) >= 12
 
 
 def check_digits(password):
-    if any(variable.isdigit() for variable in password):
-        return 2
-    return 0
+    return any (varitable.isdigit() for varitable in password)
 
 
 def has_upper_letters(password):
-    if any(variable.isupper() for variable in password):
-        return 2
-    return 0
+    return any (variable.isupper() for variable in password)
+
+
+def has_letters(password):
+    return any (variable.isalpha() for variable in password)
 
 
 def has_lower_letters(password):
-    if any(variable.islower() for variable in password):
-        return 2
-    return 0
+    return any (variable.islower() for variable in password)
 
 
 def has_symbols(password):
-    if any(not variable.isalnum() for variable in password):
-        return 2
-    return 0
+    return any (not variable.isalnum() for variable in password)
 
 
 def main():
     password = input("Введите пароль: ")
     score = 0
 
-    check_points = [
-        has_digit,
-        check_digits,
-        has_upper_letters,
-        has_lower_letters,
-        has_symbols
+    check_points= [
+        (check_the_length, 2),
+        (check_digits, 2),
+        (has_upper_letters, 2),
+        (has_letters, 2),
+        (has_lower_letters, 2)
     ]
 
-    for check in check_points:
-        score += check(password)
+
+    for check, points in check_points:
+        if check(password):
+            score += points
 
     print("Рейтинг пароля:", score)
     return score
@@ -49,4 +45,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
