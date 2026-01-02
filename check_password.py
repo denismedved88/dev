@@ -29,9 +29,10 @@ def main():
     check_points= [
         (check_the_length, 2),
         (check_digits, 2),
-        (has_upper_letters, 2),
         (has_letters, 2),
+        (has_upper_letters, 2),
         (has_lower_letters, 2)
+        (has_symbols, 2)
     ]
 
 
@@ -45,3 +46,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
